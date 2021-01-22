@@ -2,8 +2,10 @@ const URL = require('../Models/url-shortner.model');
 
 exports.getRoute = async (route) => {
     const result =  await URL.findOne({customRoute : route});
-    result.visitors = result.visitors + 1;
-    await result.save();
+    if(result){
+        result.visitors = result.visitors + 1;
+        await result.save();
+    }
     return result;
 }
 
