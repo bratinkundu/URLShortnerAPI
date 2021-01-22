@@ -11,7 +11,7 @@ app.options('*', cors())
 
 const routes = require('./App/Routes/url-shortner.route');
 
-app.use('/', cors(), routes)
+app.use('', cors(), routes)
 app.get('/sample', (req,res)=>{
     res.send({message : "Working"})
 })
