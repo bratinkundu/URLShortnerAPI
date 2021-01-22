@@ -3,6 +3,8 @@ require('dotenv').config();
 const urlController = require('../Controllers/url-shortner.controller');
 
 router.get('/:route',async (req,res)=>{
+    console.log("GET called!")
+    console.log(req.params.route);
     const route = req.params.route;
     const result = await urlController.getRoute(route);
     if(result){
@@ -14,6 +16,8 @@ router.get('/:route',async (req,res)=>{
 });
 
 router.post('/shorturl',async (req,res)=>{
+    console.log("POST called!")
+    console.log(req.body);
     try{
         const data = req.body;
         const checkURL = await urlController.checkRoute(data.customRoute);
