@@ -12,9 +12,12 @@ app.options('*', cors())
 const routes = require('./App/Routes/url-shortner.route');
 
 app.use('/', cors(), routes)
+app.get('/sample', (req,res)=>{
+    res.send({message : "Working"})
+})
 
 //App listen
-app.listen(process.env.port || 8080, async () => {
+app.listen(process.env.PORT || 8080, async () => {
     await DB();
     console.log('URL Shortener API is running on port '+process.env.port);
 });
